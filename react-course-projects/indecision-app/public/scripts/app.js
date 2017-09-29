@@ -1,65 +1,72 @@
 "use strict";
 
-// arguments object is no longer bound with arrow functions
+console.log("App.js is running");
 
-var addEs5 = function addEs5(a, b) {
-    console.log(arguments);
-    return a + b;
+var app = {
+    title: "Indecision App!",
+    subtitle: "This is some info formatted!",
+    options: ['One', 'Two']
 };
 
-var addArrow = function addArrow(a, b) {
-    // arguments is not defined in arrow fns
-    // console.log(arguments);
-    return a + b;
+var template = React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h1",
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        "p",
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        "p",
+        null,
+        app.options && app.options.length > 0 ? "Here are your options: " + app.options : "No options"
+    )
+);
+
+var count = 0;
+
+var addOne = function addOne() {
+    return console.log('addone', count);
+};
+var subOne = function subOne() {
+    return console.log('subOne', count);
+};
+var reset = function reset() {
+    return console.log('reset');
 };
 
-console.log(addEs5(55, 1, 129837));
-console.log(addArrow(55, 1, 129837));
+var template2 = React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h1",
+        null,
+        "Count: ",
+        count
+    ),
+    React.createElement(
+        "button",
+        { onClick: addOne, className: "button" },
+        "+1"
+    ),
+    React.createElement(
+        "button",
+        { onClick: subOne, className: "button" },
+        "-1"
+    ),
+    React.createElement(
+        "button",
+        { onClick: reset, className: "button" },
+        "Reset"
+    )
+);
+var appRoot = document.getElementById("app");
+var appRoot2 = document.getElementById("app2");
 
-// this keyword - no longer bound
-
-var user = {
-    name: "Adam",
-    cities: ["Victoria", "New West"],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
-        // inside ES5 function this is automagically bound to the object
-        console.log("Before cities:", this.name);
-        this.cities.forEach(function (city) {
-            // in arrow function, this is inherited from parent context
-            console.log(_this.name, "has lived in", city);
-        });
-    }
-};
-user.printPlacesLived();
-
-// es6 method definition syntax
-var user2 = {
-    name: "Adam",
-    cities: ["Victoria", "New West"],
-    printPlacesLived: function printPlacesLived() {
-        var _this2 = this;
-
-        // note the syntax change here
-        console.log("Before cities:", this.name);
-        this.cities.forEach(function (city) {
-            console.log(_this2.name, "has lived in", city);
-        });
-    }
-};
-user2.printPlacesLived();
-
-var multiplier = {
-    numbers: [1, 5, 7],
-    multiplyBy: 2,
-    multiply: function multiply() {
-        var _this3 = this;
-
-        return this.numbers.map(function (number) {
-            return number * _this3.multiplyBy;
-        });
-    }
-};
-
-console.log(multiplier.multiply());
+ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot2);

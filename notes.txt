@@ -58,3 +58,9 @@ JavaScript expressions can be embedded in JSX within {} blocks (ie: "<h1>My name
 Lec 12:
 
 If a JSX expression evaluates to undefined it is not rendered.  This can be taken advantage of to do conditional rendering.
+
+Lec 16:
+
+Attribute "class" on a dom element has been renamed to "className" in JSX. Others: https://reactjs.org/docs/dom-elements.html
+
+Interesting: looks like this is no longer the case in React 16 which was released just a couple days ago.

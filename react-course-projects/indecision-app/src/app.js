@@ -14,23 +14,18 @@ const template = (
     </div>
 );
 
-function getLocation(user) {
-    if (user.location) {
-        return <p>Location: {user.location}</p>;
-    }
-}
+let count = 0;
 
-const user = {
-    name: "Adam Parkin",
-    age: "17",
-    location: "Victoria"
-};
+const addOne = () => console.log('addone', count);
+const subOne = () => console.log('subOne', count);
+const reset = () => console.log('reset');
 
 const template2 = (
     <div>
-        <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user)}
+        <h1>Count: {count}</h1>
+        <button onClick={addOne} className="button">+1</button>
+        <button onClick={subOne} className="button">-1</button>
+        <button onClick={reset} className="button">Reset</button>
     </div>
 );
 const appRoot = document.getElementById("app");
