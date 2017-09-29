@@ -10,21 +10,28 @@ const onFormSubmit = (e) => {
     e.preventDefault();
 
     const option = e.target.elements.option.value;
-    if (option) {
+    if (option && app.options.indexOf(option) < 0) {
         // add the new option
         app.options.push(option);
 
-        // clear the input field
-        e.target.elements.option.value = '';
         // re-render the page
         render();
     }
+    // clear the input field
+    e.target.elements.option.value = '';
     console.log(app.options);
 }
 
 const onRemoveAll = () => {
     app.options = [];
     render();
+}
+
+const onMakeDecision = () => {
+    const randNum = Math.floor(Math.random() * app.options.length);
+
+    const option = app.options[randNum];
+    console.log(option);
 }
 
 const appRoot = document.getElementById("app");
@@ -37,7 +44,8 @@ const render = () =>  {
             <h1>{app.title}</h1>
             {app.subtitle && <p>{app.subtitle}</p>}
             <p>{app.options && app.options.length > 0 ? "Here are your options: " + app.options : "No options"}</p>
-            <p>{app.options.length}</p>
+
+            <button disabled={app.options.length == 0} onClick={onMakeDecision}>What Should I Do?</button>
             <button onClick={onRemoveAll}>Remove All</button>
             <ol>
                 {

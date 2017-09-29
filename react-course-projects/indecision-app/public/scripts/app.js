@@ -12,21 +12,28 @@ var onFormSubmit = function onFormSubmit(e) {
     e.preventDefault();
 
     var option = e.target.elements.option.value;
-    if (option) {
+    if (option && app.options.indexOf(option) < 0) {
         // add the new option
         app.options.push(option);
 
-        // clear the input field
-        e.target.elements.option.value = '';
         // re-render the page
         render();
     }
+    // clear the input field
+    e.target.elements.option.value = '';
     console.log(app.options);
 };
 
 var onRemoveAll = function onRemoveAll() {
     app.options = [];
     render();
+};
+
+var onMakeDecision = function onMakeDecision() {
+    var randNum = Math.floor(Math.random() * app.options.length);
+
+    var option = app.options[randNum];
+    console.log(option);
 };
 
 var appRoot = document.getElementById("app");
@@ -53,9 +60,9 @@ var render = function render() {
             app.options && app.options.length > 0 ? "Here are your options: " + app.options : "No options"
         ),
         React.createElement(
-            "p",
-            null,
-            app.options.length
+            "button",
+            { disabled: app.options.length == 0, onClick: onMakeDecision },
+            "What Should I Do?"
         ),
         React.createElement(
             "button",
