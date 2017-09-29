@@ -17,3 +17,10 @@ Section 3:
 ----------
 Did install live-server via yarn, and it worked fine.
 
+Lec 8:
+
+JSX -- JavaScript XML - language extension to JavaScript (akin to SASS/LESS for CSS)
+
+Babel -- tool for translating JSX to JavaScript
+
+Ran into an issue, when copying the babel output to app.js, reloading the page resulted in a "react-dom.js:17859 Uncaught Error: _registerComponent(...): Target container is not a DOM element." error in Chrome dev tools.  I was not able to resolve this issue.
