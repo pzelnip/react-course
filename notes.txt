@@ -40,3 +40,9 @@ Installed some presets for the project:
 
 yarn add babel-preset-react@6.24.1
 yarn add babel-preset-env@1.5.2
+
+Compiling the app.js:
+
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+--watch keeps babel running to monitor the file for changes.  If you leave this out, then it just does a single pass compile.
