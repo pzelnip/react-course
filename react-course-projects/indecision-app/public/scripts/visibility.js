@@ -6,7 +6,6 @@ var app = {
 };
 
 var onClickShow = function onClickShow(e) {
-    console.log("clicked");
     app.visible = !app.visible;
     render();
 };
@@ -23,7 +22,7 @@ var render = function render() {
         React.createElement(
             "button",
             { onClick: onClickShow },
-            "Show Details"
+            app.visible ? "Hide Details" : "Show Details"
         ),
         app.visible && React.createElement(
             "p",

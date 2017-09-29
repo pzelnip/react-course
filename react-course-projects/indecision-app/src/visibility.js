@@ -5,7 +5,6 @@ const app = {
 };
 
 const onClickShow = (e) => {
-    console.log("clicked");
     app.visible = !app.visible;
     render();
 }
@@ -14,7 +13,7 @@ const render = () =>  {
     const template = (
         <div>
             <h1>{app.title}</h1>
-            <button onClick={onClickShow}>Show Details</button>
+            <button onClick={onClickShow}>{app.visible ? "Hide Details" : "Show Details"}</button>
             {app.visible && <p>This is the secret stuff</p>}
         </div>
     );
