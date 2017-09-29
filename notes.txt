@@ -1,7 +1,19 @@
 Section 1
-
+----------
 - general overview, nothing to see here
 
 Section 2:
+----------
+part 5
 
-part 5, had to install node & yarn
+had to install node & yarn
+
+Didn't install node manually from site as I had it previously installed from homebrew.
+
+For yarn I did a "brew install yarn" rather than through npm
+
+
+Section 3:
+----------
+Did install live-server via yarn, and it worked fine.
+
