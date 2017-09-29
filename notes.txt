@@ -70,3 +70,7 @@ Lec 17:
 JSX has no built in data binding
 Leads to discussion of virtual dom.
 
+Lec 24:
+
+ES6 template strings:
+`Hi, I am ${this.name}`;
