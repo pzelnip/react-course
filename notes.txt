@@ -54,3 +54,7 @@ JSX expressions must have a single root element.  This makes sense, as it essent
 Lec 11:
 
 JavaScript expressions can be embedded in JSX within {} blocks (ie: "<h1>My name is {userName}</h1>" would emit the value of userName into the element)
+
+Lec 12:
+
+If a JSX expression evaluates to undefined it is not rendered.  This can be taken advantage of to do conditional rendering.
