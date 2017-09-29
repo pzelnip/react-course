@@ -64,3 +64,9 @@ Lec 16:
 Attribute "class" on a dom element has been renamed to "className" in JSX. Others: https://reactjs.org/docs/dom-elements.html
 
 Interesting: looks like this is no longer the case in React 16 which was released just a couple days ago.
+
+Lec 17:
+
+JSX has no built in data binding
+Leads to discussion of virtual dom.
+

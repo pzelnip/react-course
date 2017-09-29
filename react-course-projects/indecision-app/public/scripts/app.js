@@ -28,45 +28,56 @@ var template = React.createElement(
     )
 );
 
+var appRoot = document.getElementById("app");
+ReactDOM.render(template, appRoot);
+
 var count = 0;
 
 var addOne = function addOne() {
-    return console.log('addone', count);
+    count++;
+    console.log('addone', count);
+    renderCounterApp();
 };
 var subOne = function subOne() {
-    return console.log('subOne', count);
+    count--;
+    console.log('subOne', count);
+    renderCounterApp();
 };
 var reset = function reset() {
-    return console.log('reset');
+    count = 0;
+    console.log('reset', count);
+    renderCounterApp();
 };
 
-var template2 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count
-    ),
-    React.createElement(
-        "button",
-        { onClick: addOne, className: "button" },
-        "+1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: subOne, className: "button" },
-        "-1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: reset, className: "button" },
-        "Reset"
-    )
-);
-var appRoot = document.getElementById("app");
 var appRoot2 = document.getElementById("app2");
 
-ReactDOM.render(template, appRoot);
-ReactDOM.render(template2, appRoot2);
+var renderCounterApp = function renderCounterApp() {
+    var template2 = React.createElement(
+        "div",
+        null,
+        React.createElement(
+            "h1",
+            null,
+            "Count: ",
+            count
+        ),
+        React.createElement(
+            "button",
+            { onClick: addOne, className: "button" },
+            "+1"
+        ),
+        React.createElement(
+            "button",
+            { onClick: subOne, className: "button" },
+            "-1"
+        ),
+        React.createElement(
+            "button",
+            { onClick: reset, className: "button" },
+            "Reset"
+        )
+    );
+
+    ReactDOM.render(template2, appRoot2);
+};
+renderCounterApp();
