@@ -74,3 +74,12 @@ Lec 24:
 
 ES6 template strings:
 `Hi, I am ${this.name}`;
+
+
+Lec 25
+
+React Components!
+
+Components are just ES6 classes that extend React.Component
+Must supply a render() method which just returns JSX
+Components must start with uppercase first letter, this is how React differentiates between components and HTML tags in JSX 
