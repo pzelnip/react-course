@@ -46,3 +46,11 @@ Compiling the app.js:
 babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 
 --watch keeps babel running to monitor the file for changes.  If you leave this out, then it just does a single pass compile.
+
+Lec 10:
+
+JSX expressions must have a single root element.  This makes sense, as it essentially converts the JSX into a AST.
+
+Lec 11:
+
+JavaScript expressions can be embedded in JSX within {} blocks (ie: "<h1>My name is {userName}</h1>" would emit the value of userName into the element)
