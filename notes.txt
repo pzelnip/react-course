@@ -24,3 +24,19 @@ JSX -- JavaScript XML - language extension to JavaScript (akin to SASS/LESS for 
 Babel -- tool for translating JSX to JavaScript
 
 Ran into an issue, when copying the babel output to app.js, reloading the page resulted in a "react-dom.js:17859 Uncaught Error: _registerComponent(...): Target container is not a DOM element." error in Chrome dev tools.  I was not able to resolve this issue.
+
+Lec 9:
+Setting up babel:
+
+installed babel via yarn:
+
+yarn global v1.1.0
+
+Did an init to generate package.json
+
+yarn init
+
+Installed some presets for the project:
+
+yarn add babel-preset-react@6.24.1
+yarn add babel-preset-env@1.5.2
