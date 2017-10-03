@@ -3,10 +3,11 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: ["One", "Two", "three"]
+            options: []
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
     }
     handleDeleteOptions() {
         this.setState(() => {
@@ -19,6 +20,19 @@ class IndecisionApp extends React.Component {
         const randNum = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options[randNum];
         console.log(option);
+    }
+    handleAddOption(option) {
+        if (!option) {
+            return "Enter a valid value to add";
+        } else if (this.state.options.indexOf(option) >= 0){
+            return option + " already exists";
+        } else {
+            this.setState((prevState) => {
+                return {
+                    options: prevState.options.concat(option)
+                };
+            });
+        }
     }
     render() {
         const title = 'Indecision';
@@ -35,7 +49,9 @@ class IndecisionApp extends React.Component {
                     options={this.state.options} 
                     handleDeleteOptions={this.handleDeleteOptions}
                 />
-                <AddOption />
+                <AddOption
+                    handleAddOption={this.handleAddOption}
+                />
             </div>
             );
     }
@@ -94,19 +110,28 @@ class Options extends React.Component {
 }
 
 class AddOption extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleOnSubmit = this.handleOnSubmit.bind(this);
+        this.state = {
+            error: undefined
+        }
+    }
     handleOnSubmit(e) {
         e.preventDefault();
         const value = e.target.elements.option.value.trim();
-        if (value) {
-            alert(value);
-        }
+        const error = this.props.handleAddOption(value);
+        this.setState(() => {
+            return { error };
+        });
+         
         // clear the input field
         e.target.elements.option.value = '';
-        console.log("Handle on add option", value);
     }
     render() {
         return (
             <div>
+                {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.handleOnSubmit}>
                     <input type="text" name="option"/>
                     <button>Add Option</button>
