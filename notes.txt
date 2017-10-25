@@ -87,3 +87,7 @@ Components must start with uppercase first letter, this is how React differentia
 Lec 34
 
 this.setState calls are *asynchronous*
+
+Lec 40
+
+Stateless Functional Components ==> a function which returns some JSX, but has no state.  Good for very simple presenational components.  Faster than class-based components.
